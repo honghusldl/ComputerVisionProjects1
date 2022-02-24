@@ -31,21 +31,6 @@ ax.set_xticklabels(labels.tolist())
 ax.get_yaxis().set_ticks([])
 plt.show()
 
-# # display first batch of 10 images
-# batch_size = 10
-# def show_images(images,nmax = batch_size):
-#     fig, ax = plt.subplots(figsize = (10,10))
-#     ax.set_xticks([])
-#     ax.set_yticks([])
-#     ax.imshow(make_grid((images.detach()[:nmax]), nrow=5).permute(1,2,0)) # permute() put channels as the last dimension
-#
-# def show_batch(dataloader, nmax = batch_size):
-#     for images in dataloader:
-#         show_images(images,nmax)
-#         break
-# show_batch(train_loader)
-
-
 # Downsampling
 # If a 28x28 image is passed through a Convolutional layer using a 5x5 filter, a step size of 1, and no padding,
 # create the conv layer and pass in one data sample as input, then printout the resulting matrix size
@@ -64,20 +49,20 @@ print(x.shape)
 x = F.max_pool2d(x,2) # stride length is not specified
 print(x.shape)
 
-conv1 = nn.Conv2d(1, 5, 2, 1)
-conv2 = nn.Conv2d(5, 15, 2, 1)
-x = train_data[1][0]
-x = x.view(1,1,28,28)
-x = F.relu(conv1(x))
-print(x.shape)
-x = F.max_pool2d(x,2,2)
-print(x.shape)
-x = F.relu(conv2(x))
-print(x.shape)
-x = F.max_pool2d(x,2,2)
-print(x.shape)
-x = x.view(-1,6*6*15)
-print(x.shape)
+# conv1 = nn.Conv2d(1, 5, 2, 1)
+# conv2 = nn.Conv2d(5, 15, 2, 1)
+# x = train_data[1][0]
+# x = x.view(1,1,28,28)
+# x = F.relu(conv1(x))
+# print(x.shape)
+# x = F.max_pool2d(x,2,2)
+# print(x.shape)
+# x = F.relu(conv2(x))
+# print(x.shape)
+# x = F.max_pool2d(x,2,2)
+# print(x.shape)
+# x = x.view(-1,6*6*15)
+# print(x.shape)
 
 # Define a convolutional neural network
 # Define a CNN model that can be trained on the Fashion-MNIST dataset.
